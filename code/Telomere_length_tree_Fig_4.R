@@ -1,12 +1,11 @@
 #===== Information =====#
 
-### Author: Agnes Szwarczynska & Yolanda Yolanda Qian
+### Author: Agnes Szwarczynska & Yolanda Qian
 ### Date: 29/06/2026
-### Aim: Build and visualise a phylogenetic tree for the telomere length dataset
+### Aim: Build and visualise a phylogenetic tree for the telomere length dataset (Figure 4)
 
 #===== Required packages =====#
 
-library(readr)
 library(readxl)
 library(brms)
 library(rotl)
