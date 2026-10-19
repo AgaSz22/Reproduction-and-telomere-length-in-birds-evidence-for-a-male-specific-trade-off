@@ -1,13 +1,13 @@
 #===== Information =====#
 
-### Author: Agnes Szwarczynska & Yolanda Yolanda Qian
+### Author: Agnes Szwarczynska & Yolanda Qian
 ### Date: 29/06/2026
-### Aim: Run Bayesian models using the telomere length dataset and extract data neccessary to build a phylogenetic tree
+### Aim: Run Bayesian models using the telomere length dataset, conduct sensitivity analysis &
+### build a phylogenetic tree
 
 #===== Required packages =====#
 
-library(readr)
-library(readxl)   # needed for read_excel
+library(readxl)   
 library(brms)
 library(rotl)
 library(ape)
