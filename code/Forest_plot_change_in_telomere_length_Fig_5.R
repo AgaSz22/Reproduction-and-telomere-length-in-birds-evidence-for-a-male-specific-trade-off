@@ -6,7 +6,6 @@
 
 #===== Libraries =====#
 
-library(readr)
 library(brms)
 library(ggplot2)
 library(tidybayes)
