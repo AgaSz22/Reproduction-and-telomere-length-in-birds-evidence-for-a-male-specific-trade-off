@@ -1,13 +1,11 @@
 #===== Information =====#
 
-### Author: Agnes Szwarczynska & Yolanda Yolanda Qian
+### Author: Agnes Szwarczynska & Yolanda Qian
 ### Date: 29/06/2026
-### Aim: Build and visualise a phylogenetic tree for the change in telomere length dataset
-
+### Aim: Build and visualise a phylogenetic tree for the change in telomere length dataset (Figure 6)
 
 #===== Required packages =====#
 
-library(readr)
 library(readxl)
 library(brms)
 library(rotl)
@@ -17,7 +15,6 @@ library(ggtree)
 library(ggplot2)
 
 #===== Loading data =====#
-
 
 data_ta <- read_excel("../data/change_in_telomere_length.xlsx")
 
