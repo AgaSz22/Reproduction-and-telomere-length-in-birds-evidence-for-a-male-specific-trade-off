@@ -1,6 +1,6 @@
 #===== Information =====#
 
-### Author: Agnes Szwarczynska & Yolanda Yolanda Qian
+### Author: Agnes Szwarczynska & Yolanda Qian
 ### Date: 29/06/2026
 ### Aim: Build and visualise forest plot for studies on telomere length (Fig.3)
 
