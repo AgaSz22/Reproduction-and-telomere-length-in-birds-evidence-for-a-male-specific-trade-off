@@ -1,8 +1,8 @@
 #===== Information =====#
 
-### Author: Agnes Szwarczynska & Yolanda Yolanda Qian
+### Author: Agnes Szwarczynska & Yolanda Qian
 ### Date: 29/06/2026
-### Aim: Producing a publication bias figure
+### Aim: Producing a publication bias figure (Fig. 7)
 
 #===== Required packages =====#
 
