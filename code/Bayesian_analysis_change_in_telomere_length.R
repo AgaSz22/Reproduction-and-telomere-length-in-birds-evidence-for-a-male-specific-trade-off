@@ -1,9 +1,9 @@
 #===== Information =====#
 
-### Author: Agnes Szwarczynska & Yolanda Yolanda Qian
+### Author: Agnes Szwarczynska & Yolanda Qian
 ### Date: 29/06/2026
-### Aim: Run Bayesian models using the change in telomere length dataset and extract data neccessary to build a phylogenetic tree
-
+### Aim: Run Bayesian models using the change in telomere length dataset, conduct sensitivity analysis &
+### build a phylogenetic tree
 
 #===== Required packages =====#
 
@@ -83,30 +83,30 @@ saveRDS(m.brm_moderators_ta, file = "../rds_objects/m.brm_moderators_ta.rds")
 sum_m.brm_moderators_ta <- summary(m.brm_moderators_ta)   
 saveRDS(sum_m.brm_moderators_ta, file = "../rds_objects/sum_m.brm_moderators_ta.rds")
 
-### Model with all moderators : sensitivity analysis
+### Model with all moderators: sensitivity analysis
 
-data_ta_sens <- data_ta %>% filter(!Study_ID %in% c(1,10)) #conducting sensitivity analysis is impossible in this case, because we are left with only 1 study in the "indirect" proxy group
+data_ta_sens <- data_ta %>% filter(!Study_ID %in% c(4,10)) #removing entire group, because there are only 2 studies with indirect proxies;
+                                                           #please see the Methods section for more details
+m.brm_moderators_ta_sens <- brm(
+  Zr | se(SE_Zr) ~ 1 + Sex + Age_accounted + Method + (1 | Study_ID),
+  family  = gaussian(link = "identity"),
+  data    = data_ta_sens,
+  prior   = priors,
+  init    = 0,
+  iter    = 40000,
+  warmup  = 1000, 
+  chains  = 4,
+  thin    = 1,
+  control = list(
+    adapt_delta   = 0.99,
+    max_treedepth = 15
+  ),
+  seed = 14
+)
 
-# m.brm_moderators_ta_sens <- brm(
-#   Zr | se(SE_Zr) ~ 1 + Sex + Age_accounted + Method + Proxy + (1 | Study_ID),
-#   family  = gaussian(link = "identity"),
-#   data    = data_ta_sens,           
-#   prior   = priors,
-#   init    = 0,
-#   iter    = 40000,
-#   warmup  = 1000,
-#   chains  = 4,                 
-#   thin    = 1,                 
-#   control = list(
-#     adapt_delta   = 0.99,      
-#     max_treedepth = 15         
-#   ),
-#   seed = 14
-# )
-# 
-# saveRDS(m.brm_moderators_ta_sens, file = "../rds_objects/m.brm_moderators_ta_sens.rds")
-# sum_m.brm_moderators_ta_sens <- summary(m.brm_moderators_ta_sens)   
-# saveRDS(sum_m.brm_moderators_ta_sens, file = "../rds_objects/sum_m.brm_moderators_ta_sens.rds")
+saveRDS(m.brm_moderators_ta_sens, file = "../rds_objects/m.brm_moderators_ta_sens.rds")
+sum_m.brm_moderators_ta_sens <- summary(m.brm_moderators_ta_sens)
+saveRDS(sum_m.brm_moderators_ta_sens, file = "../rds_objects/sum_m.brm_moderators_ta_sens.rds")
 
 #===== Bayesian phylogenetic models =====#
 
